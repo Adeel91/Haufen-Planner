@@ -5,7 +5,7 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
         @endif
-        <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'Laravel') }}</a>
+        <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'Haufen Planner') }}</a>
         <div class="navbar-burger burger" data-target="navMenu">
             <span></span>
             <span></span>

@@ -1,0 +1,43 @@
+.box.has-text-centered {
+    padding: 1.25rem 0;
+    position: relative;
+
+    .title, .subtitle {
+        color: #ffffff;
+    }
+
+    .subtitle {
+        margin-bottom: 15px;
+    }
+
+    .more-detail {
+        color: #ffffff;
+        font-size: 13px;
+        padding: 5px;
+        position: absolute;
+        bottom: 0;
+        background: rgba(0,0,0,0.1);
+        width: 100%;
+        left: 0;
+    }
+}
+
+.bg-open {
+    background: #00c0ef !important;
+}
+
+.bg-ongoing {
+    background: #00a65a !important;
+}
+
+.bg-cancel {
+    background: #868686 !important;
+}
+
+.bg-draft {
+    background: #f39c12 !important;
+}
+
+.bg-close {
+    background: #dd4b39 !important;
+}

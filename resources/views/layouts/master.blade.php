@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ getPageTitle() }} | {{ config('app.name', 'Laravel') }}</title>
+        <title>{{ getPageTitle() }} | {{ config('app.name', 'Haufen Planner') }}</title>
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
