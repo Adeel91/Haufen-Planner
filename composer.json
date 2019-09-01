@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "laravel/haufen-planner",
+    "description": "Haufen Planner tool for project management system based on Laravel Framework.",
+    "keywords": ["framework", "laravel", "haufen planner", "planner", "pms", "vuejs", "management system"],
     "license": "MIT",
     "type": "project",
     "require": {

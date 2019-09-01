@@ -36,6 +36,14 @@ Project Management System based on Larvel 5.5.* and Vue.js :)
 - Run `npm run dev`
 - Start developing!
 
+## Important Information
+
+Need to run these commands to run the project on 
+the browser
+- Run `npm run dev` to build the project
+- Run `php artisan serve` to start the development server
+on this URL <http://127.0.0.1:8000>
+
 ## Notes
 If you run `php artisan db:seed` it will create a one default user and five status ( `draft,open,ongoing,close,cancel.` ). These Details are stored in `DatabaseSeeder.php` class.
 By Default

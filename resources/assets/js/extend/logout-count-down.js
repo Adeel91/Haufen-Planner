@@ -36,6 +36,8 @@ let x = setInterval(function() {
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("countDownTimer").innerHTML = "EXPIRED";
-        document.getElementById('logout-form').submit();
+
+        // @todo auto logout only works on the time but after timer user is able to login again
+        //document.getElementById('logout-form').submit();
     }
 }, 1000);
