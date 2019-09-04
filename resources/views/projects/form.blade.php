@@ -24,7 +24,7 @@
     @endif
 </div>
 <div class="columns">
-    <div class="column is-6">
+    <div class="column is-4">
         <div class="field">
             <label class="label">
                 Client
@@ -44,7 +44,27 @@
             @endif
         </div>
     </div>
-    <div class="column is-6">
+    <div class="column is-4">
+        <div class="field">
+            <label class="label">
+                Employee
+                <span class="has-text-danger" title="Field required">*</span>
+            </label>
+            <div class="control">
+                <div class="select is-fullwidth {{ ($errors->has('client_id')) ? 'is-danger' : '' }}">
+                    <select required name="employee_id" multiple>
+                        @foreach($employees as $employee)
+                            <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            @if($errors->has('employee_id'))
+                <p class="help is-danger">{{ $errors->get('employee_id') }}</p>
+            @endif
+        </div>
+    </div>
+    <div class="column is-4">
         <div class="field">
             <label class="label">
                 Status

@@ -6264,12 +6264,12 @@ a.dropdown-item.is-active {
 }
 
 .menu-list a:hover {
-  background-color: #50646d;
+  background-color: #00b4e0;
   color: #ffffff;
 }
 
 .menu-list a.is-active {
-  background-color: #50646d;
+  background-color: #00c0ef;
   color: #ffffff;
 }
 
@@ -11538,6 +11538,20 @@ label.panel-block:hover {
   left: 0;
 }
 
+.project-header {
+  padding: 0;
+}
+
+.project-header .title {
+  background: #00c0ef !important;
+  color: #fff;
+  padding: 10px;
+}
+
+.project-header .body {
+  padding: 0 1.25rem 1.25rem;
+}
+
 .bg-open {
   background: #00c0ef !important;
 }
@@ -14609,6 +14623,19 @@ label.panel-block:hover {
   margin: 0;
   overflow: visible;
   clip: auto;
+}
+
+.navbar.is-info {
+  background: #00c0ef;
+}
+
+.navbar .user-image {
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.select:not(.is-multiple) {
+  height: auto;
 }
 
 .p-t-f {

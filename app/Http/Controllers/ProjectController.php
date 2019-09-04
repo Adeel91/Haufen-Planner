@@ -31,7 +31,8 @@ class ProjectController extends Controller
     {
         $project = new Project();
         $clients = User::role('client')->get();
-        return view('projects.create', compact('project', 'clients'));
+        $employees = User::role('employee')->get();
+        return view('projects.create', compact('project', 'clients', 'employees'));
     }
 
     /**
@@ -77,7 +78,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $clients = User::role('client')->get();
-        return view('projects.edit', compact('project', 'clients'));
+        $employees = User::role('employee')->get();
+        return view('projects.edit', compact('project', 'clients', 'employees'));
     }
 
     /**

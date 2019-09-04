@@ -16,3 +16,5 @@ mix.js([
     'resources/assets/js/extend/logout-count-down.js'
     ], 'public/js')
 .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.copy( 'resources/assets/img', 'public/images', false );

@@ -7,7 +7,7 @@ use App\Table\UserTable;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class UsersController extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::role('client')->paginate(20);
+        $users = User::role('employee')->paginate(20);
         $table = new UserTable($users);
-        return view('users.index', compact('users', 'table'));
+        return view('employees.index', compact('users', 'table'));
     }
 
     /**
@@ -29,7 +29,7 @@ class UsersController extends Controller
     public function create()
     {
         $user = new User();
-        return view('users.create', compact('user'));
+        return view('employees.create', compact('user'));
     }
 
     /**
@@ -48,11 +48,11 @@ class UsersController extends Controller
 
         $user = User::create($data);
 
-        $user->assignRole(Role::where('name', config('pms.default.role'))->first());
+        $user->assignRole('employee');
 
-        flash('Client created successfully');
+        flash('Employee created successfully');
 
-        return redirect()->route('users.index');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -74,7 +74,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        return view('employees.edit', compact('user'));
     }
 
     /**
@@ -94,9 +94,9 @@ class UsersController extends Controller
             
         $user->update(array_filter($data));
 
-        flash('Client updated successfully');
+        flash('Employee updated successfully');
 
-        return redirect()->route('users.index');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -108,7 +108,7 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        flash('Client deleted Successfully', 'info');
-        return redirect()->route('users.index');
+        flash('Employee deleted Successfully', 'info');
+        return redirect()->route('employees.index');
     }
 }

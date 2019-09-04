@@ -17,14 +17,20 @@ class DatabaseSeeder extends Seeder
     {
         $adminRole = Role::create(['name' => 'admin']);
         $clientRole = Role::create(['name' => 'client']);
+        $employeeRole = Role::create(['name' => 'employee']);
 
         $clientDefaultPermissions = config('pms.default.rolepermissions.client');
+        $employeeDefaultPermissions = config('pms.default.rolepermissions.employee');
 
         foreach (config('pms.default.permissions') as $permission) {
             $p = Permission::create(['name' => $permission]);
 
             if (in_array($p->name, $clientDefaultPermissions)) {
                 $clientRole->givePermissionTo($p->name);
+            }
+
+            if (in_array($p->name, $employeeDefaultPermissions)) {
+                $employeeRole->givePermissionTo($p->name);
             }
         }
 
