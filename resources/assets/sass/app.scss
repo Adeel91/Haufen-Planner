@@ -5,9 +5,9 @@
 $menu-item-color:#cfcdcd;
 $menu-item-radius:0px;
 $menu-item-hover-color:#ffffff;
-$menu-item-hover-background-color:#50646d;
+$menu-item-hover-background-color:darken(#00c0ef, 3%);
 $menu-item-active-color:#ffffff;
-$menu-item-active-background-color:#50646d;
+$menu-item-active-background-color:#00c0ef;
 $menu-list-border-left:0px;
 $menu-label-color:#7c7c7c;
 
@@ -16,6 +16,21 @@ $menu-label-color:#7c7c7c;
 @import "extend/box.scss";
 
 @import "node_modules/font-awesome/css/font-awesome";
+
+.navbar {
+    &.is-info {
+        background: $menu-item-active-background-color;
+    }
+
+    .user-image {
+        border-radius: 100%;
+        margin-right: 10px;
+    }
+}
+
+.select:not(.is-multiple) {
+    height: auto;
+}
 
 .p-t-f {
     padding-top: 0px;

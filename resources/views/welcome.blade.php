@@ -19,7 +19,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #209cee;
+                background-color: #00c0ef;
                 color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;

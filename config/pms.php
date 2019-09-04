@@ -29,11 +29,14 @@ return [
         'users.create' => 'New client',
         'users.edit' => 'Edit client',
 
+        'employees.index' => 'Employees',
+        'employees.create' => 'Create employee',
+
         'dashboard' => 'Dashboard',
     ],
     'default' => [
         'statuses' => ['Draft','Open','On Going','Close','Cancel'],
-        'role' => 'client',
+        'role' => ['client', 'employee'],
         'permissions' => [
             'create_projects',
             'edit_projects',
@@ -77,6 +80,16 @@ return [
                 'create_credentials',
                 'edit_credentials',
                 'view_credentials',
+            ],
+            'employee' => [
+                'view_projects',
+                'create_tasks',
+                'edit_tasks',
+                'view_tasks',
+                'edit_tasks_status',
+                'view_tasks',
+                'create_comments',
+                'view_comments'
             ]
         ]
     ]

@@ -35,4 +35,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('statuses', 'StatusController', ['except'=>'show'])->middleware('role:admin');
     Route::resource('users', 'UsersController', ['except'=>'show'])->middleware('role:admin');
+    Route::resource('employees', 'EmployeesController', ['except'=>'show'])->middleware('role:admin');
 });

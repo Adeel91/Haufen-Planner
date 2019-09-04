@@ -23,7 +23,10 @@
             @else
                 <a class="navbar-item ">Auto Logout: &nbsp; <span id="countDownTimer"></span></a>
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="#">{{ Auth::user()->name }}</a>
+                    <a class="navbar-link" href="#">
+                        <img src = "{{ asset('/images/adeel.png') }}" class="user-image" />
+                        {{ Auth::user()->name }}
+                    </a>
                     <div class="navbar-dropdown">
                         <a class="navbar-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
