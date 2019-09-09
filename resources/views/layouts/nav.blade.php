@@ -24,7 +24,8 @@
                 <a class="navbar-item ">Auto Logout: &nbsp; <span id="countDownTimer"></span></a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link" href="#">
-                        <img src = "{{ asset('/images/adeel.png') }}" class="user-image" />
+{{--                        <img src = "{{ asset('/images/adeel.png') }}" class="user-image" />--}}
+                        <p class="image-initial">{{ strtoupper(substr(Auth::user()->name, 0, 2)) }}</p>
                         {{ Auth::user()->name }}
                     </a>
                     <div class="navbar-dropdown">

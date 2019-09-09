@@ -5,9 +5,9 @@
 $menu-item-color:#cfcdcd;
 $menu-item-radius:0px;
 $menu-item-hover-color:#ffffff;
-$menu-item-hover-background-color:darken(#00c0ef, 3%);
+$menu-item-hover-background-color:darken(#871111, 3%);
 $menu-item-active-color:#ffffff;
-$menu-item-active-background-color:#00c0ef;
+$menu-item-active-background-color:#871111;
 $menu-list-border-left:0px;
 $menu-label-color:#7c7c7c;
 
@@ -55,15 +55,31 @@ $menu-label-color:#7c7c7c;
     min-height:200px;
 }
 
+.image-initial {
+    background: #630d0d;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    padding: 6px 9px;
+    margin-right: 5px;
+    color: #ffffff;
+}
+
 .page {
     .sidebar {
-        background-color: #222d32;
+        background-color: #868686;
         border-right: 1px solid gray;
         padding-top: 0px;
         .menu {
             padding-top: 25px;
             .menu-label {
+                color: #000000;
                 padding-left: 10px;
+                font-weight: bold;
+            }
+            .menu-list {
+                a {
+                    color: #ffffff;
+                }
             }
         }
     }
