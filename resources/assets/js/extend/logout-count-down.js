@@ -38,7 +38,6 @@ let x = setInterval(function() {
         document.getElementById("countDownTimer").innerHTML = "EXPIRED";
 
         if (current.getHours() <= 18 && current.getHours() >= 9) {
-            // @todo auto logout only works on the time but after timer user is able to login again
             document.getElementById('logout-form').submit();
         }
     }
