@@ -3,10 +3,10 @@ let current = new Date();
 // Set the date we're counting down to
 let countDownDate = new Date();
 
-if (current.getHours() >= 13) {
+if (current.getHours() <= 18 && current.getHours() >= 13) {
     countDownDate.setHours(18);
 }
-else {
+else if (current.getHours() <= 13 && current.getHours() >= 9) {
     countDownDate.setHours(13);
 }
 
@@ -37,7 +37,9 @@ let x = setInterval(function() {
         clearInterval(x);
         document.getElementById("countDownTimer").innerHTML = "EXPIRED";
 
-        // @todo auto logout only works on the time but after timer user is able to login again
-        //document.getElementById('logout-form').submit();
+        if (current.getHours() <= 18 && current.getHours() >= 9) {
+            // @todo auto logout only works on the time but after timer user is able to login again
+            document.getElementById('logout-form').submit();
+        }
     }
 }, 1000);
