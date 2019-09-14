@@ -56,8 +56,6 @@ class TaskTable extends Table
     public function getColumnValue($column, $task)
     {
         $data = '';
-
-        $projectEmployees = ProjectsEmployees::where('project_id', $this->project->id);
         
         switch ($column) {
             case 'id':
@@ -81,13 +79,13 @@ class TaskTable extends Table
                 break;
 
             case 'employee':
-                if (!$projectEmployees->get()->all()) {
+                $user = User::find($task->employee_id);
+
+                if (!$user) {
                     $data = 'N/A';
                 }
-
-                foreach ($projectEmployees->get()->all() as $item) {
-                    $user = User::find($item->employee_id);
-                    $data .= '<a title="'. $user->name. '" class="members-initial is_'. $this->i .'" href="javascript:void(0)">'.strtoupper(substr($user->name, 0, 2)).'</a>';
+                else {
+                    $data = '<a title="' . $user->name . '" class="members-initial is_' . $this->i . '" href="javascript:void(0)">' . strtoupper(substr($user->name, 0, 2)) . '</a>';
 
                     $this->i++;
 

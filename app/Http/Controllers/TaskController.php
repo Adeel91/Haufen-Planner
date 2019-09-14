@@ -50,6 +50,7 @@ class TaskController extends Controller
         $data = $request->validate([
                     'title' => 'required',
                     'description' => 'required',
+                    'employee_id' => 'required|exists:users,id',
                     'status_id' => 'required|exists:statuses,id'
                 ]);
 
@@ -98,6 +99,7 @@ class TaskController extends Controller
         $data = $request->validate([
                     'title' => 'required',
                     'description' => 'required',
+                    'employee_id' => 'required|exists:users,id',
                     'status_id' => 'required|exists:statuses,id'
                 ]);
 
