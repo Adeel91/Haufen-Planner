@@ -14752,7 +14752,7 @@ table tbody td {
 }
 
 .page .sidebar {
-  background-color: #868686;
+  background-color: #4a4a4a;
   border-right: 1px solid gray;
   padding-top: 0px;
 }
@@ -14762,7 +14762,7 @@ table tbody td {
 }
 
 .page .sidebar .menu .menu-label {
-  color: #000000;
+  color: #a5a5a5;
   padding-left: 10px;
   font-weight: bold;
 }

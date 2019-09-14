@@ -25,6 +25,25 @@
 </div>
 <div class="field">
     <label class="label">
+        Members
+        <span class="has-text-danger" title="Field required">*</span>
+    </label>
+    <div class="control">
+        <div class="select is-fullwidth {{ ($errors->has('client_id')) ? 'is-danger' : '' }}">
+            <select required name="employee_id">
+                @foreach($employees as $employee)
+                    <?php $user = (new App\User())::find($employee->employee_id); ?>
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    @if($errors->has('employee_id'))
+        <p class="help is-danger">{{ $errors->get('employee_id') }}</p>
+    @endif
+</div>
+<div class="field">
+    <label class="label">
         Status
         <span class="has-text-danger" title="Field required">*</span>
     </label>

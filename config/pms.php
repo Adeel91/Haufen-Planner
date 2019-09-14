@@ -25,12 +25,12 @@ return [
         'tasks.comments.create' => 'New comment',
         'tasks.comments.edit' => 'Edit comment',
 
-        'users.index' => 'All clients',
-        'users.create' => 'New client',
-        'users.edit' => 'Edit client',
+        'users.index' => 'All supervisors',
+        'users.create' => 'New supervisor',
+        'users.edit' => 'Edit supervisor',
 
         'employees.index' => 'Team Members',
-        'employees.create' => 'Create a member',
+        'employees.create' => 'Create member',
 
         'dashboard' => 'Dashboard',
     ],

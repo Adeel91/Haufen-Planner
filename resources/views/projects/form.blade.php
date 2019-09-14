@@ -47,7 +47,7 @@
     <div class="column is-4">
         <div class="field">
             <label class="label">
-                Employee
+                Members
                 <span class="has-text-danger" title="Field required">*</span>
             </label>
             <div class="control">

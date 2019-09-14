@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ProjectsEmployees;
 use App\Task;
 use App\Project;
 use App\Table\TaskTable;
+use App\User;
 use Illuminate\Http\Request;
 use App\Filters\TaskFilters;
 
@@ -32,7 +34,8 @@ class TaskController extends Controller
     public function create(Project $project)
     {
         $task = new Task();
-        return view('tasks.create', compact('project', 'task'));
+        $employees = (new ProjectsEmployees())->where('project_id', $project->id)->get();
+        return view('tasks.create', compact('project', 'task', 'employees'));
     }
 
     /**
@@ -78,7 +81,8 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
-        return view('tasks.edit', compact('project', 'task'));
+        $employees = (new ProjectsEmployees())->where('project_id', $project->id)->get();
+        return view('tasks.edit', compact('project', 'task', 'employees'));
     }
 
     /**

@@ -13,23 +13,45 @@ use App\Status;
 
 class ProjectTable extends Table
 {
+    /**
+     * @var int
+     */
     protected $i = 1;
 
+    /**
+     * @var int
+     */
+    protected $rowId = 1;
+
+    /**
+     * @var string
+     */
     protected $primaryKey = 'title';
-    
+
+    /**
+     * @var array
+     */
     protected $columns = [
+        'id' => 'ID',
         'title' => 'Title',
         'status' => 'Status',
-        'client' => 'Client',
-        'employee' => 'Team Members',
+        'client' => 'Supervisor',
+        'employee' => 'Team Members'
     ];
 
+    /**
+     * ProjectTable constructor.
+     * @param $data
+     */
     public function __construct($data)
     {
         parent::__construct($data);
         $this->statuses = Status::all();
     }
 
+    /**
+     * @return array|void
+     */
     public function getColumns()
     {
         if (Auth::user()->hasRole('client')) {
@@ -39,6 +61,11 @@ class ProjectTable extends Table
         return $this->columns;
     }
 
+    /**
+     * @param string $column
+     * @param object $project
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int|mixed|string
+     */
     public function getColumnValue($column, $project)
     {
         $data = '';
@@ -46,6 +73,10 @@ class ProjectTable extends Table
         $projectEmployees = ProjectsEmployees::where('project_id', $project->id);
 
         switch ($column) {
+            case 'id':
+                $data = $this->rowId++;
+                break;
+
             case 'title':
                 $data =  '<a class="project-title" href="'. route('projects.tasks.index', $project->id) .'">'. $project->title .'</a>';
                 break;
@@ -99,6 +130,10 @@ class ProjectTable extends Table
         return $data;
     }
 
+    /**
+     * @param $item
+     * @return array|void
+     */
     public function generateQuickActionLinks($item)
     {
         $links = [];

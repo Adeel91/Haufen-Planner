@@ -3,7 +3,7 @@
 @section('content')
 <div class="box">
     <form action="{{ route('users.store') }}" method="POST">
-        @include('users.form',['buttonText'=>'Create client'])
+        @include('users.form',['buttonText'=>'Create supervisor'])
     </form>
 </div>
 @endsection

@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Status;
 use App\Project;
+use App\Status;
 use App\Traits\Userstamps;
 use App\Filters\TaskFilters;
 use Illuminate\Database\Eloquent\Model;
@@ -54,11 +54,19 @@ class Task extends Model
     /**
      * A taks belongs to project.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function project()
     {
         return $this->belongsTo(Project::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projectsEmployees()
+    {
+        return $this->hasMany(ProjectsEmployees::class);
     }
 
     /**

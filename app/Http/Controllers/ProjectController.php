@@ -18,7 +18,6 @@ class ProjectController extends Controller
      */
     public function index(ProjectFilters $filters)
     {
-//        echo '<pre>';dump(Project::latest()->filter($filters)->paginate(20));die;
         $projects = Project::latest()->filter($filters)->paginate(20);
         $table = new ProjectTable($projects);
         return view('projects.index', compact('projects', 'table'));

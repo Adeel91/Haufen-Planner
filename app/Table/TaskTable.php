@@ -9,18 +9,38 @@ use App\Status;
 
 class TaskTable extends Table
 {
+    /**
+     * @var int
+     */
     protected $i = 1;
 
+    /**
+     * @var int
+     */
+    protected $rowId = 1;
+
+    /**
+     * @var string
+     */
     protected $primaryKey = 'title';
 
     protected $project;
 
+    /**
+     * @var array
+     */
     protected $columns = [
+        'id' => 'ID',
         'title' => 'Title',
         'status' => 'Status',
         'employee' => 'Assigned To'
     ];
 
+    /**
+     * TaskTable constructor.
+     * @param $data
+     * @param $project
+     */
     public function __construct($data, $project)
     {
         $this->project = $project;
@@ -28,6 +48,11 @@ class TaskTable extends Table
         $this->statuses = Status::all();
     }
 
+    /**
+     * @param string $column
+     * @param object $task
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int|mixed|string
+     */
     public function getColumnValue($column, $task)
     {
         $data = '';
@@ -35,6 +60,10 @@ class TaskTable extends Table
         $projectEmployees = ProjectsEmployees::where('project_id', $this->project->id);
         
         switch ($column) {
+            case 'id':
+                $data = $this->rowId++;
+                break;
+
             case 'title':
                 $data =  '<a href="'. route('tasks.comments.index', $task->id) .'">'. $task->title .'</a>';
                 break;
@@ -77,6 +106,10 @@ class TaskTable extends Table
         return $data;
     }
 
+    /**
+     * @param $task
+     * @return array|void
+     */
     public function generateQuickActionLinks($task)
     {
         $links = [];

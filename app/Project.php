@@ -58,7 +58,6 @@ class Project extends Model
      */
     public function scopeFilter($query, ProjectFilters $filters)
     {
-//        echo '<pre>';dump($filters->apply($query));die;
         return $filters->apply($query);
     }
 
