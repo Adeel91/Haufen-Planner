@@ -63,7 +63,7 @@ class TaskTable extends Table
                 break;
 
             case 'title':
-                $data =  '<a href="'. route('tasks.comments.index', $task->id) .'">'. $task->title .'</a>';
+                $data =  '<a class="project-title" href="'. route('tasks.comments.index', $task->id) .'">'. $task->title .'</a>';
                 break;
 
             case 'status':

@@ -144,8 +144,8 @@ class Table
     {
         ?>
         <tr>
-            <td class="has-text-centered" colspan="<?php echo count($this->getColumns()) ?>">
-                No Items Found
+            <td class="has-text-centered even" colspan="<?php echo count($this->getColumns()) ?>">
+                No Records Found
             </td>
         </tr>
         <?php

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Task;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -18,7 +19,9 @@ class CommentController extends Controller
     {
         $comments = Comment::where(['task_id'=>$task->id])->get();
         $newComment = new Comment();
-        return view('comments.index', compact('task', 'comments', 'newComment'));
+        $user = User::find($task->employee_id);
+        
+        return view('comments.index', compact('task', 'comments', 'newComment', 'user'));
     }
 
     /**

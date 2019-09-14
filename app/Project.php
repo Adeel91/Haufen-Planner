@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\User;
 use App\Task;
+use App\User;
 use App\Status;
 use App\Credential;
 use App\Traits\Userstamps;
@@ -107,6 +107,14 @@ class Project extends Model
     public function tasksGroupbyCount()
     {
         return $this->hasMany(Task::class)->select(\DB::raw('count(*) as count, status_id'))->groupBy('status_id')->get();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function tasksCount()
+    {
+        return $this->hasMany(Task::class)->select(\DB::raw('count(*) as count, status_id'))->count();
     }
 
     /**

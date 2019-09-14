@@ -11538,6 +11538,26 @@ label.panel-block:hover {
   left: 0;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.comment-section {
+  float: left;
+  margin-bottom: 30px;
+  width: 60%;
+}
+
+.task-section {
+  float: right;
+  margin-left: 10px;
+  width: 39%;
+}
+
 .project-header {
   padding: 0;
 }
@@ -11548,7 +11568,8 @@ label.panel-block:hover {
   padding: 10px;
 }
 
-.project-header .body {
+.project-header .body,
+.project-header .content {
   padding: 0 1.25rem 1.25rem;
 }
 
@@ -14774,6 +14795,7 @@ table tbody td {
 .page .page-content {
   background-color: #ecf0f5;
   min-height: 100vh;
+  height: 100%;
   padding: 1rem;
 }
 

@@ -34,6 +34,7 @@ class ProjectTable extends Table
     protected $columns = [
         'id' => 'ID',
         'title' => 'Title',
+        'tasks_count' => 'Tasks Count',
         'status' => 'Status',
         'client' => 'Supervisor',
         'employee' => 'Team Members'
@@ -79,6 +80,10 @@ class ProjectTable extends Table
 
             case 'title':
                 $data =  '<a class="project-title" href="'. route('projects.tasks.index', $project->id) .'">'. $project->title .'</a>';
+                break;
+
+            case 'tasks_count':
+                $data =  '<a href="'. route('projects.tasks.index', $project->id) .'">'. $project->tasksCount() .'</a>';
                 break;
 
             case 'status':
