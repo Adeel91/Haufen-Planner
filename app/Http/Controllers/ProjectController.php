@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Project;
+use App\ProjectsEmployees;
 use App\Table\ProjectTable;
 use Illuminate\Http\Request;
 use App\Filters\ProjectFilters;
@@ -17,6 +18,7 @@ class ProjectController extends Controller
      */
     public function index(ProjectFilters $filters)
     {
+//        echo '<pre>';dump(Project::latest()->filter($filters)->paginate(20));die;
         $projects = Project::latest()->filter($filters)->paginate(20);
         $table = new ProjectTable($projects);
         return view('projects.index', compact('projects', 'table'));
@@ -50,7 +52,15 @@ class ProjectController extends Controller
                     'status_id' => 'required|exists:statuses,id'
                 ]);
 
-        Project::create($data);
+        $project = Project::create($data);
+
+        foreach ($request->input('employee_id') as $item) {
+            $employee = new ProjectsEmployees();
+            $employee->employee_id = (int) $item;
+            $employee->project_id = $project->id;
+
+            $project->projectsEmployees()->save($employee);
+        }
 
         flash('Project Created Successfully.');
 
@@ -100,16 +110,27 @@ class ProjectController extends Controller
 
         $project->update($data);
 
+        ProjectsEmployees::where('project_id', $project->id)->delete();
+
+        foreach ($request->input('employee_id') as $item) {
+            $employee = new ProjectsEmployees();
+            $employee->employee_id = (int) $item;
+            $employee->project_id = $project->id;
+
+            $project->projectsEmployees()->save($employee);
+        }
+
         flash('Project Updated Successfully.');
 
         return redirect()->route('projects.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remo     ve the specified resource from storage.
      *
-     * @param  \App\Project  $project
+     * @param \App\Project $project
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Project $project)
     {

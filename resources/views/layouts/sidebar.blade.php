@@ -13,7 +13,7 @@
         <li>
             <a class="{{ isActive('employees.index') }}" href="{{ route('employees.index') }}">
                 <span class="icon"><i class="fa fa-users"></i></span>
-                Employees
+                Team Members
             </a>
         </li>
         <li>
@@ -65,13 +65,13 @@
         <li>
             <a class="{{ isActive('employees.create') }}" href="{{ route('employees.create') }}">
                 <span class="icon"><i class="fa fa-plus-circle"></i></span>
-                New Employee
+                Add New Member
             </a>
         </li>
         <li>
             <a class="{{ isActive('users.create') }}" href="{{ route('users.create') }}">
                 <span class="icon"><i class="fa fa-plus-circle"></i></span>
-                New Supervisor
+                Add New Supervisor
             </a>
         </li>
     </ul>

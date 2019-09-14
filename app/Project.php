@@ -31,7 +31,7 @@ class Project extends Model
      */
     protected $dates = ['deleted_at'];
 
-    protected $with = ['client','status'];
+    protected $with = ['client', 'status'];
 
     /**
      * The "booting" method of the model.
@@ -58,6 +58,7 @@ class Project extends Model
      */
     public function scopeFilter($query, ProjectFilters $filters)
     {
+//        echo '<pre>';dump($filters->apply($query));die;
         return $filters->apply($query);
     }
 
@@ -79,6 +80,14 @@ class Project extends Model
     public function client()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projectsEmployees()
+    {
+        return $this->hasMany(ProjectsEmployees::class);
     }
 
     /**

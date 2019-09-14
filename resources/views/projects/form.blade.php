@@ -52,7 +52,7 @@
             </label>
             <div class="control">
                 <div class="select is-fullwidth {{ ($errors->has('client_id')) ? 'is-danger' : '' }}">
-                    <select required name="employee_id" multiple>
+                    <select required name="employee_id[]" multiple>
                         @foreach($employees as $employee)
                             <option value="{{ $employee->id }}">{{ $employee->name }}</option>
                         @endforeach

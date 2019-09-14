@@ -37,7 +37,7 @@ let x = setInterval(function() {
         clearInterval(x);
         document.getElementById("countDownTimer").innerHTML = "EXPIRED";
 
-        if (current.getHours() <= 18 && current.getHours() >= 9) {
+        if (current.getHours() < 18 && current.getHours() >= 9) {
             document.getElementById('logout-form').submit();
         }
     }

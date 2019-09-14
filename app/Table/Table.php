@@ -95,8 +95,8 @@ class Table
             return $this->noItems();
         }
         
-        foreach ($this->getItems() as $item) {
-            $this->singleRow($item);
+        foreach ($this->getItems() as $index => $item) {
+            $this->singleRow($index, $item);
         }
     }
 
@@ -113,12 +113,14 @@ class Table
     /**
      * Render a single row in table.
      *
-     * @param [type] $item
+     * @param $index
+     * @param $item
      * @return void
      */
-    public function singleRow($item)
+    public function singleRow($index, $item)
     {
-        echo "<tr>";
+        $class = ($index % 2 == 0) ? 'even' : '';
+        echo "<tr class='". $class ."'>";
         foreach ($this->getColumns() as $key => $name) {
             echo "<td>";
             

@@ -2,7 +2,9 @@
 
 namespace App\Table;
 
+use App\ProjectsEmployees;
 use App\Table\Table;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Credential;
@@ -11,12 +13,15 @@ use App\Status;
 
 class ProjectTable extends Table
 {
+    protected $i = 1;
+
     protected $primaryKey = 'title';
     
     protected $columns = [
         'title' => 'Title',
         'status' => 'Status',
-        'client' => 'Client'
+        'client' => 'Client',
+        'employee' => 'Team Members',
     ];
 
     public function __construct($data)
@@ -38,9 +43,11 @@ class ProjectTable extends Table
     {
         $data = '';
 
+        $projectEmployees = ProjectsEmployees::where('project_id', $project->id);
+
         switch ($column) {
             case 'title':
-                $data =  '<a href="'. route('projects.tasks.index', $project->id) .'">'. $project->title .'</a>';
+                $data =  '<a class="project-title" href="'. route('projects.tasks.index', $project->id) .'">'. $project->title .'</a>';
                 break;
 
             case 'status':
@@ -56,7 +63,32 @@ class ProjectTable extends Table
                 break;
             
             case 'client':
-                $data =  '<a href="'. route('projects.index', ['for'=>$project->client->name]) .'">'.$project->client->name.'</a>';
+                $data =  '<a title="'. $project->client->name .'" class="members-initial is_'. $this->i .'" href="'. route('projects.index', ['for'=>$project->client->name]) .'">'.strtoupper(substr($project->client->name, 0, 2)).'</a>';
+
+                $this->i++;
+
+                if ($this->i > 6) {
+                    $this->i = 1;
+                }
+
+                break;
+
+            case 'employee':
+                if (!$projectEmployees->get()->all()) {
+                    $data = 'N/A';
+                }
+
+                foreach ($projectEmployees->get()->all() as $item) {
+                    $user = User::find($item->employee_id);
+                    $data .= '<a title="'. $user->name. '" class="members-initial is_'. $this->i .'" href="javascript:void(0)">'.strtoupper(substr($user->name, 0, 2)).'</a>';
+
+                    $this->i++;
+
+                    if ($this->i > 6) {
+                        $this->i = 1;
+                    }
+                }
+
                 break;
             
             default:

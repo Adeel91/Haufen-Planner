@@ -29,8 +29,8 @@ return [
         'users.create' => 'New client',
         'users.edit' => 'Edit client',
 
-        'employees.index' => 'Employees',
-        'employees.create' => 'Create employee',
+        'employees.index' => 'Team Members',
+        'employees.create' => 'Create a member',
 
         'dashboard' => 'Dashboard',
     ],
