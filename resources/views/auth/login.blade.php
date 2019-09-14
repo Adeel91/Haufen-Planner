@@ -3,6 +3,10 @@
 @section('content')
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
+            <div class="biometric-container">
+                <img src = "{{ asset('/images/biometric.png') }}" class="biometric" />
+                <div>Before entering your login credentials for authentication, please do not forget to check-in with your fingerprint in the biometric system.</div>
+            </div>
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">Login</p>

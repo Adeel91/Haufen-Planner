@@ -14727,6 +14727,21 @@ label.panel-block:hover {
   background: #8a0bb9;
 }
 
+.biometric-container {
+  margin-bottom: 50px;
+  text-align: center;
+  width: auto;
+}
+
+.biometric-container img {
+  width: 300px;
+}
+
+.biometric-container div {
+  color: #dd4b39;
+  font-size: 20px;
+}
+
 table thead td {
   font-weight: bold;
   border-width: 1px 0 1px !important;

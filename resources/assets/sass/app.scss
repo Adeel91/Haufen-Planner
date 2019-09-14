@@ -117,6 +117,21 @@ $menu-label-color:#7c7c7c;
     }
 }
 
+.biometric-container {
+    margin-bottom: 50px;
+    text-align: center;
+    width: auto;
+
+    img {
+        width: 300px;
+    }
+
+    div {
+        color: #dd4b39;
+        font-size: 20px;
+    }
+}
+
 table {
     thead {
         td {
