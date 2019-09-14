@@ -17,10 +17,10 @@ class CommentController extends Controller
      */
     public function index(Task $task)
     {
-        $comments = Comment::where(['task_id'=>$task->id])->get();
+        $comments = Comment::where(['task_id'=>$task->id])->orderBy('updated_at', 'DESC')->get();
         $newComment = new Comment();
         $user = User::find($task->employee_id);
-        
+
         return view('comments.index', compact('task', 'comments', 'newComment', 'user'));
     }
 
