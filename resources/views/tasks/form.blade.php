@@ -33,7 +33,7 @@
             <select required name="employee_id">
                 @foreach($employees as $employee)
                     <?php $user = (new App\User())::find($employee->employee_id); ?>
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    <option value="{{ $user->id }}" {{ ( $employee->employee_id === $task->employee_id ) ? 'selected' : '' }}>{{ $user->name }}</option>
                 @endforeach
             </select>
         </div>
