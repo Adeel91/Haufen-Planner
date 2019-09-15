@@ -45,11 +45,13 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-                    'title' => 'required',
-                    'description' => 'required',
-                    'client_id' => 'required|exists:users,id',
-                    'status_id' => 'required|exists:statuses,id'
-                ]);
+            'title' => 'required',
+            'description' => 'required',
+            'client_id' => 'required|exists:users,id',
+            'status_id' => 'required|exists:statuses,id',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
 
         $project = Project::create($data);
 
@@ -101,11 +103,13 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->validate([
-                    'title' => 'required',
-                    'description' => 'required',
-                    'client_id' => 'required|exists:users,id',
-                    'status_id' => 'required|exists:statuses,id'
-                ]);
+            'title' => 'required',
+            'description' => 'required',
+            'client_id' => 'required|exists:users,id',
+            'status_id' => 'required|exists:statuses,id',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
 
         $project->update($data);
 

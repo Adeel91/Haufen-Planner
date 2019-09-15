@@ -24,6 +24,40 @@
     @endif
 </div>
 <div class="columns">
+    <div class="column is-6">
+        <div class="field">
+            <label class="label">
+                Start Date
+                <span class="has-text-danger" title="Field required">*</span>
+            </label>
+            <div class="control">
+                <div class="select is-fullwidth {{ ($errors->has('start_date')) ? 'is-danger' : '' }}">
+                    <input id="startDateDatepicker" required class="input" type="text" name="start_date" value="{{ $project->start_date }}">
+                </div>
+            </div>
+            @if($errors->has('start_date'))
+                <p class="help is-danger">{{ $errors->get('start_date') }}</p>
+            @endif
+        </div>
+    </div>
+    <div class="column is-6">
+        <div class="field">
+            <label class="label">
+                End Date
+                <span class="has-text-danger" title="Field required">*</span>
+            </label>
+            <div class="control">
+                <div class="select is-fullwidth {{ ($errors->has('end_date')) ? 'is-danger' : '' }}">
+                    <input id="endDateDatepicker" required class="input" type="text" name="end_date" value="{{ $project->end_date }}">
+                </div>
+            </div>
+            @if($errors->has('end_date'))
+                <p class="help is-danger">{{ $errors->get('end_date') }}</p>
+            @endif
+        </div>
+    </div>
+</div>
+<div class="columns">
     <div class="column is-4">
         <div class="field">
             <label class="label">

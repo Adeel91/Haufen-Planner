@@ -60,4 +60,16 @@
     <p class="help is-danger">{{ $errors->get('status_id') }}</p>
     @endif
 </div>
+<div class="field">
+    <label class="label">
+        Due Date
+        <span class="has-text-danger" title="Field required">*</span>
+    </label>
+    <div class="control">
+        <input id="dueDateDatepicker" required class="input" type="text" name="due_date" value="{{ $task->due_date }}">
+    </div>
+    @if($errors->has('due_date'))
+        <p class="help is-danger">{{ $errors->first('due_date') }}</p>
+    @endif
+</div>
 <input class="button is-primary" type="submit" value="{{ $buttonText }}">
