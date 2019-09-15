@@ -96,7 +96,6 @@
             <div class="content">
                 <div class="title m-b-md">
                     Haufen Planner
-                    <p class="versioninfo">App Version 1.0.1</p>
                 </div>
             </div>
         </div>
