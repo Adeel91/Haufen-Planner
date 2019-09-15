@@ -44,7 +44,7 @@ class Status extends Model
     /**
      * Get a group based projects count for statuses.
      *
-     * @return void
+     * @return mixed
      */
     public static function getProjectsCountByStatus()
     {
@@ -54,6 +54,26 @@ class Status extends Model
             $user = Auth::user();
             if ($user->hasRole('client')) {
                 $q->where('projects.client_id', $user->id);
+            }
+        })
+        ->groupBy('statuses.id')
+        ->get(
+            ['statuses.id','statuses.title','statuses.slug', DB::raw('count(projects.id) as count')]
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getProjectsCountForEmployees()
+    {
+        return self::join('projects', 'projects.status_id', '=', 'statuses.id')
+        ->join('projects_employees', 'projects_employees.project_id', '=', 'projects.id')
+        ->where(function ($q) {
+            $q->where('projects.deleted_at', null);
+            $user = Auth::user();
+            if ($user->hasRole('employee')) {
+                $q->where('projects_employees.employee_id', $user->id);
             }
         })
         ->groupBy('statuses.id')

@@ -8,6 +8,8 @@ use App\ProjectsEmployees;
 use App\Table\ProjectTable;
 use Illuminate\Http\Request;
 use App\Filters\ProjectFilters;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -19,6 +21,25 @@ class ProjectController extends Controller
     public function index(ProjectFilters $filters)
     {
         $projects = Project::latest()->filter($filters)->paginate(20);
+
+        $user = Auth::user();
+        if ($user->hasRole('employee')) {
+            $projectEmployees = ProjectsEmployees::where('employee_id', $user->id)->get();
+
+            $projectList = [];
+            foreach ($projects as $project) {
+                foreach ($projectEmployees as $employee) {
+                    if ($project->id === $employee->project_id) {
+                        $projectList[] = $project;
+                    }
+                }
+            }
+
+            $projects = $projectList;
+
+            $projects = new LengthAwarePaginator($projects, count($projectList), 20);
+        }
+
         $table = new ProjectTable($projects);
         return view('projects.index', compact('projects', 'table'));
     }

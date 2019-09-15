@@ -34,11 +34,20 @@
                 Projects
             </a>
         </li>
+        @role('admin')
         <li>
             <a class="{{ isActive('projects.create') }}" href="{{ route('projects.create') }}">
                 <span class="icon"><i class="fa fa-plus-circle"></i></span>New Project
             </a>
         </li>
+        @endrole
+        @role('client')
+        <li>
+            <a class="{{ isActive('projects.create') }}" href="{{ route('projects.create') }}">
+                <span class="icon"><i class="fa fa-plus-circle"></i></span>New Project
+            </a>
+        </li>
+        @endrole
     </ul>
     @role('admin')
     <p class="menu-label">
