@@ -85,7 +85,14 @@ class ProjectTable extends Table
                 break;
 
             case 'tasks_count':
-                $data =  '<a href="'. route('projects.tasks.index', $project->id) .'">'. $project->tasksCount() .'</a>';
+                $taskCount = $project->tasksCount();
+
+                $user = Auth::user();
+                if ($user->hasRole('employee')) {
+                    $taskCount = $project->tasksCountEmployees($user);
+                }
+
+                $data =  '<a href="'. route('projects.tasks.index', $project->id) .'">'. $taskCount .'</a>';
                 break;
 
             case 'start_date':

@@ -14,7 +14,7 @@
                     <div class="media-content">
                         <div class="content">
                             <div class="right">
-                                @if( Auth::id() === $comment->creator->id )
+                                @if( Auth::id() === $comment->creator->id || $user->role('admin') )
                                     @can('comments.update',[$task,$comment])
                                         <a href="{{ route('tasks.comments.edit',['task'=>$task->id,'comment'=>$comment->id]) }}"><i style="font-size: 18px;color: #000000" class="fa fa-edit"></i></a>
                                     @endcan
@@ -28,7 +28,7 @@
                                 <strong class="project-title">{{ $comment->creator->name }}</strong>
                                 <small>{{ $comment->created_at->diffForHumans() }}</small>
                             </p>
-                            <p>
+                            <p class="direct-chat-text chat_bg_{{++$key}}">
                                 {{ $comment->body }}
                             </p>
                         </div>

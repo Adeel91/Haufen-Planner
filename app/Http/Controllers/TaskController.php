@@ -9,6 +9,7 @@ use App\Table\TaskTable;
 use App\User;
 use Illuminate\Http\Request;
 use App\Filters\TaskFilters;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -21,6 +22,12 @@ class TaskController extends Controller
     public function index(Project $project, TaskFilters $filters)
     {
         $tasks = Task::getTasksByProject($project, $filters)->latest()->paginate(20);
+
+        $user = Auth::user();
+        if ($user->hasRole('employee')) {
+            $tasks = Task::getTasksByProjectsEmployees($project, $filters, $user)->latest()->paginate(20);
+        }
+
         $table = new TaskTable($tasks, $project);
         return view('tasks.index', compact('project', 'tasks', 'table'));
     }

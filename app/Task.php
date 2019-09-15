@@ -95,10 +95,21 @@ class Task extends Model
      *
      * @param Project $project
      * @param TaskFilters $filters
-     * @return void
+     * @return mixed
      */
     public static function getTasksByProject(Project $project, TaskFilters $filters)
     {
         return static::where('project_id', $project->id)->filter($filters);
+    }
+
+    /**
+     * @param \App\Project $project
+     * @param TaskFilters $filters
+     * @param $user
+     * @return mixed
+     */
+    public static function getTasksByProjectsEmployees(Project $project, TaskFilters $filters, $user)
+    {
+        return static::where('project_id', $project->id)->where('employee_id', $user->id)->filter($filters);
     }
 }

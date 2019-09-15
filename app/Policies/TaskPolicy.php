@@ -18,7 +18,8 @@ class TaskPolicy
     
     public function index(User $user, Project $project, Task $task = null)
     {
-        return $this->hasPermission('view_tasks', $user, $project);
+        return $user->can('view_tasks', $user, $project);
+//        return $this->hasPermission('view_tasks', $user, $project);
     }
     
     public function updateStatus(User $user, Project $project, Task $task)

@@ -117,6 +117,11 @@ class Project extends Model
         return $this->hasMany(Task::class)->select(\DB::raw('count(*) as count, status_id'))->count();
     }
 
+    public function tasksCountEmployees($user)
+    {
+        return $this->hasMany(Task::class)->select(\DB::raw('count(*) as count, status_id'))->where('employee_id', $user->id)->count();
+    }
+
     /**
      * Add a task to project.
      *

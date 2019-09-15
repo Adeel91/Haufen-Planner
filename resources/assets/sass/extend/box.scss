@@ -56,26 +56,45 @@
     }
 }
 
-.bg-all {
+.chat_bg_1, .bg-all {
     background: #871111 !important;
 }
 
-.bg-open {
-    background: #00c0ef !important;
+.chat_bg_2, .bg-open {
+    background: #039fc5 !important;
 }
 
-.bg-ongoing {
+.chat_bg_3, .bg-ongoing {
     background: #00a65a !important;
 }
 
-.bg-cancel {
+.chat_bg_4, .bg-cancel {
     background: #868686 !important;
 }
 
-.bg-draft {
+.chat_bg_5, .bg-draft {
     background: #f39c12 !important;
 }
 
-.bg-close {
+.chat_bg_6, .bg-close {
     background: #dd4b39 !important;
+}
+
+.direct-chat-text {
+    border-radius: .3rem;
+    color: #ffffff;
+    padding: 10px;
+    position: relative;
+
+    &:before {
+        border: solid transparent;
+        border-right-color: #d2d6de;
+        content: ' ';
+        height: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 100%;
+        top: 15px;
+        width: 0;
+    }
 }

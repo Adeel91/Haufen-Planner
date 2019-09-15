@@ -18,12 +18,14 @@ class CommentPolicy
     
     public function index(User $user, Task $task, Comment $comment = null)
     {
-        return $this->hasPermission('view_comments', $user, $task);
+        return $user->can('view_comments', $user, $task);
+//        return $this->hasPermission('view_comments', $user, $task);
     }
 
     public function create(User $user, Task $task, Comment $comment = null)
     {
-        return $this->hasPermission('create_comments', $user, $task);
+        return $user->can('create_comments', $user, $task);
+//        return $this->hasPermission('create_comments', $user, $task);
     }
 
     public function update(User $user, Task $task, Comment $comment)
