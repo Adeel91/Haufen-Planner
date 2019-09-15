@@ -48,7 +48,7 @@ class LoginController extends Controller
             $this->username() => 'required|exists:users,' . $this->username() . ',is_checkedIn,1',
             'password' => 'required',
         ], [
-            $this->username() . '.exists' => 'The selected email is invalid or you have not checked in yet.'
+            $this->username() . '.exists' => 'You have not checked in yet via biometric system.'
         ]);
     }
 

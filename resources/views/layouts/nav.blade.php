@@ -19,12 +19,10 @@
         <div class="navbar-end">
             @if (Auth::guest())
                 <a class="navbar-item " href="{{ route('login') }}">Login</a>
-                <a class="navbar-item " href="{{ route('register') }}">Register</a>
             @else
                 <a class="navbar-item ">Auto Logout: &nbsp; <span id="countDownTimer"></span></a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link" href="#">
-{{--                        <img src = "{{ asset('/images/adeel.png') }}" class="user-image" />--}}
                         <p class="image-initial">{{ strtoupper(substr(Auth::user()->name, 0, 2)) }}</p>
                         {{ Auth::user()->name }}
                     </a>

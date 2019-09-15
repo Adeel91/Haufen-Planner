@@ -61,30 +61,9 @@
                             <div class="field-label"></div>
 
                             <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <label class="checkbox">
-                                            <input type="checkbox"
-                                                   name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                        </label>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field is-horizontal">
-                            <div class="field-label"></div>
-
-                            <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
                                         <button type="submit" class="button is-primary">Login</button>
-                                    </div>
-
-                                    <div class="control">
-                                        <a href="{{ route('password.request') }}">
-                                            Forgot Your Password?
-                                        </a>
                                     </div>
                                 </div>
                             </div>
