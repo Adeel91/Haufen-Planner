@@ -24,6 +24,10 @@
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script>
             $(function() {
+                $( '#dueDateDatepicker' ).on('keydown keyup', function(e){
+                    e.preventDefault();
+                });
+
                 $( '#dueDateDatepicker' ).datepicker({
                     dateFormat: 'yy-mm-dd',
                     minDate: new Date($( '#dueDateDatepicker' ).attr('mindate')),
