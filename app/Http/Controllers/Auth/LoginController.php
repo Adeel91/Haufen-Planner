@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -49,5 +50,29 @@ class LoginController extends Controller
         ], [
             $this->username() . '.exists' => 'The selected email is invalid or you have not checked in yet.'
         ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $user
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        $currentDate = strtotime(Carbon::now()->toDateString());
+        $lastLoggedInDate = strtotime($user->last_login_at);
+
+        $differenceDays = 0;
+
+        if ($user->last_login_at) {
+            $differenceDays = ($currentDate - $lastLoggedInDate) / 60 / 60 / 24;
+        }
+
+        if (!$user->last_login_at || $differenceDays > 0) {
+            $user->login_days += 1;
+            $user->save();
+        }
+
+        $user->last_login_at = Carbon::now()->toDateString();
+        $user->save();
     }
 }

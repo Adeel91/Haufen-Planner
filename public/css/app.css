@@ -14772,6 +14772,11 @@ table tbody td {
   border-width: 1px 0 1px !important;
 }
 
+.user-label {
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
 .page .sidebar {
   background-color: #4a4a4a;
   border-right: 1px solid gray;
