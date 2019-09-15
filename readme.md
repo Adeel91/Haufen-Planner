@@ -48,7 +48,7 @@ on this URL <http://127.0.0.1:8000>
 If you run `php artisan db:seed` it will create a one default user and five status ( `draft,open,ongoing,close,cancel.` ). These Details are stored in `DatabaseSeeder.php` class.
 By Default
 - **User Name** : Muhammad Sajeel
-- **Email Address** : Sajeel@haufen-planner.com
+- **Email Address** : sajeel@haufen-planner.com
 - **Password** : Sajeel
 
 Configurations are stored in `config/pms.php` file.
@@ -59,46 +59,51 @@ This section has the user credentials used in the project.
 
 ### Admin Users
 - **User Name** : Muhammad Sajeel
-- **Email Address** : Sajeel@haufen-planner.com
+- **Email Address** : sajeel@haufen-planner.com
 - **Password** : Sajeel
 
 ### Suervisor Users
 - **User Name** : Muhammad Nabeel
-- **Email Address** : Nabeel@haufen-planner.com
+- **Email Address** : nabeel@haufen-planner.com
 - **Password** : Nabeel
 <hr />
 
 - **User Name** : Muhammad Adeel
-- **Email Address** : Adeel@haufen-planner.com
+- **Email Address** : adeel@haufen-planner.com
 - **Password** : Adeeel
 <hr />
 
 - **User Name** : Faisal Yazdanie
-- **Email Address** : Faisal@haufen-planner.com
+- **Email Address** : faisal@haufen-planner.com
 - **Password** : Faisal
 
 ### Team Members (Employees)
 - **User Name** : Muhammad Sajeel
-- **Email Address** : M.Sajeel@haufen-planner.com
+- **Email Address** : m.sajeel@haufen-planner.com
 - **Password** : Sajeel
 <hr />
 
 - **User Name** : Osama Bin Athar
-- **Email Address** : Osama@haufen-planner.com
+- **Email Address** : osama@haufen-planner.com
 - **Password** : Osamaa
 <hr />
 
 - **User Name** : Abdul Mannan
-- **Email Address** : Mannan@haufen-planner.com
+- **Email Address** : mannan@haufen-planner.com
 - **Password** : Mannan
 <hr />
 
 - **User Name** : Anas Hassan
-- **Email Address** : Anas@haufen-planner.com
+- **Email Address** : anas@haufen-planner.com
 - **Password** : Anaass
 <hr />
 
 - **User Name** : Arbaz Sagheer
-- **Email Address** : Arbaz@haufen-planner.com
+- **Email Address** : arbaz@haufen-planner.com
 - **Password** : Arbaaz
+<hr />
+
+- **User Name** : Eng. Muhammad Nadeem
+- **Email Address** : nadeem@haufen-planner.com
+- **Password** : Nadeem
 <hr />
