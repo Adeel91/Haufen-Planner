@@ -66,7 +66,7 @@
         <span class="has-text-danger" title="Field required">*</span>
     </label>
     <div class="control">
-        <input id="dueDateDatepicker" required class="input" type="text" name="due_date" value="{{ $task->due_date }}">
+        <input id="dueDateDatepicker" minDate="{{ $project->start_date }}" maxDate="{{ $project->end_date }}" required class="input" type="text" name="due_date" value="{{ $task->due_date }}">
     </div>
     @if($errors->has('due_date'))
         <p class="help is-danger">{{ $errors->first('due_date') }}</p>

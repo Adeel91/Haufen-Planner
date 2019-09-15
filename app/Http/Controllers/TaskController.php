@@ -48,11 +48,12 @@ class TaskController extends Controller
     public function store(Request $request, Project $project)
     {
         $data = $request->validate([
-                    'title' => 'required',
-                    'description' => 'required',
-                    'employee_id' => 'required|exists:users,id',
-                    'status_id' => 'required|exists:statuses,id'
-                ]);
+            'title' => 'required',
+            'description' => 'required',
+            'due_date' => 'required',
+            'employee_id' => 'required|exists:users,id',
+            'status_id' => 'required|exists:statuses,id'
+        ]);
 
         $project->addTask($data);
 
@@ -97,11 +98,12 @@ class TaskController extends Controller
     public function update(Request $request, Project $project, Task $task)
     {
         $data = $request->validate([
-                    'title' => 'required',
-                    'description' => 'required',
-                    'employee_id' => 'required|exists:users,id',
-                    'status_id' => 'required|exists:statuses,id'
-                ]);
+            'title' => 'required',
+            'description' => 'required',
+            'due_date' => 'required',
+            'employee_id' => 'required|exists:users,id',
+            'status_id' => 'required|exists:statuses,id'
+        ]);
 
         $task->update($data);
 
@@ -113,9 +115,10 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Project  $project
-     * @param  \App\Task  $task
+     * @param \App\Project $project
+     * @param \App\Task $task
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Project $project, Task $task)
     {
@@ -124,6 +127,12 @@ class TaskController extends Controller
         return redirect()->route('projects.tasks.index', $project->id);
     }
 
+    /**
+     * @param Request $request
+     * @param Project $project
+     * @param Task $task
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
     public function updateStatus(Request $request, Project $project, Task $task)
     {
         $data = $request->validate([

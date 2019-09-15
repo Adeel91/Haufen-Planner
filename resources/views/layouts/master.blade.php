@@ -24,22 +24,26 @@
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script>
             $(function() {
-                $( "#dueDateDatepicker" ).datepicker();
+                $( '#dueDateDatepicker' ).datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    minDate: new Date($( '#dueDateDatepicker' ).attr('mindate')),
+                    maxDate: new Date($( '#dueDateDatepicker' ).attr('maxdate'))
+                });
 
-                $( "#startDateDatepicker" ).datepicker({
+                $( '#startDateDatepicker' ).datepicker({
                     dateFormat: 'yy-mm-dd',
                     onSelect: function(dateStr)
                     {
-                        $("#endDateDatepicker").val(dateStr);
-                        $("#endDateDatepicker").datepicker("option", { minDate: new Date(dateStr)})
+                        $( '#endDateDatepicker' ).val(dateStr);
+                        $( '#endDateDatepicker' ).datepicker("option", { minDate: new Date(dateStr)})
                     }
                 });
 
-                $( "#endDateDatepicker" ).datepicker({
+                $( '#endDateDatepicker' ).datepicker({
                     dateFormat: 'yy-mm-dd',
                     onSelect: function(dateStr)
                     {
-                        $("#startDateDatepicker").datepicker("option", { maxDate: new Date(dateStr)})
+                        $( '#startDateDatepicker' ).datepicker("option", { maxDate: new Date(dateStr)})
                     }
                 });
             });

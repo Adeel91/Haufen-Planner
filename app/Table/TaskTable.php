@@ -32,6 +32,7 @@ class TaskTable extends Table
     protected $columns = [
         'id' => 'ID',
         'title' => 'Title',
+        'due_date' => 'Due Date',
         'status' => 'Status',
         'employee' => 'Assigned To'
     ];
@@ -64,6 +65,10 @@ class TaskTable extends Table
 
             case 'title':
                 $data =  '<a class="project-title" href="'. route('tasks.comments.index', $task->id) .'">'. $task->title .'</a>';
+                break;
+
+            case 'due_date':
+                $data =  '<span>'. $task->due_date .'</span>';
                 break;
 
             case 'status':

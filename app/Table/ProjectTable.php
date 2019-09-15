@@ -35,6 +35,8 @@ class ProjectTable extends Table
         'id' => 'ID',
         'title' => 'Title',
         'tasks_count' => 'Tasks Count',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
         'status' => 'Status',
         'client' => 'Supervisor',
         'employee' => 'Team Members'
@@ -84,6 +86,14 @@ class ProjectTable extends Table
 
             case 'tasks_count':
                 $data =  '<a href="'. route('projects.tasks.index', $project->id) .'">'. $project->tasksCount() .'</a>';
+                break;
+
+            case 'start_date':
+                $data =  '<span>'. $project->start_date .'</span>';
+                break;
+
+            case 'end_date':
+                $data =  '<span>'. $project->end_date .'</span>';
                 break;
 
             case 'status':
