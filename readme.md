@@ -78,6 +78,11 @@ This section has the user credentials used in the project.
 - **Password** : Faisal
 
 ### Team Members (Employees)
+- **User Name** : Muhammad Sajeel
+- **Email Address** : M.Sajeel@haufen-planner.com
+- **Password** : Sajeel
+<hr />
+
 - **User Name** : Osama Bin Athar
 - **Email Address** : Osama@haufen-planner.com
 - **Password** : Osamaa
