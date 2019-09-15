@@ -14,8 +14,8 @@ class AddLoginFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('login_days');
-            $table->date('last_login_at')->nullable();
+            $table->unsignedInteger('login_days')->after('remember_token');
+            $table->date('last_login_at')->nullable()->after('login_days');
         });
     }
 
