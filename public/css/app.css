@@ -14675,6 +14675,10 @@ label.panel-block:hover {
   clip: auto;
 }
 
+html {
+  font-size: 0.9rem;
+}
+
 .navbar.is-info {
   background: #871111;
 }
@@ -14839,13 +14843,60 @@ table tbody td {
 }
 
 .sectionDash {
-  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
 }
 
-.sectionDash .clock {
-  background: #8bdab6;
-  border: 1px solid;
+.sectionDash .row {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  margin: 0 5px;
+}
+
+.sectionDash .row .box {
+  padding: 0.8rem;
+}
+
+.sectionDash .row:first-child {
+  margin-left: 0;
+}
+
+.sectionDash .row:last-child {
+  margin-right: 0;
+}
+
+.sectionDash .row .direct-chat-messages {
+  height: 300px;
+}
+
+.sectionDash .row .direct-chat-info {
+  height: 20px;
+}
+
+.sectionDash .row .direct-chat-msg {
+  width: 100%;
+  clear: both;
+}
+
+.sectionDash .row .clock {
+  background: #ffffff;
+  border-top: 5px solid #00a65a;
   float: right;
   padding: 30px;
+}
+
+.sectionDash .oneColumn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.sectionDash .twoColumns {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 

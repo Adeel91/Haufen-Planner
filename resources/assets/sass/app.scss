@@ -17,6 +17,10 @@ $menu-label-color:#7c7c7c;
 
 @import "node_modules/font-awesome/css/font-awesome";
 
+html {
+    font-size: 0.9rem;
+}
+
 .navbar {
     &.is-info {
         background: $menu-item-active-background-color;
@@ -189,12 +193,51 @@ table {
 }
 
 .sectionDash {
-    margin-top: 40px;
+    display: flex;
+    margin-top: 20px;
 
-    .clock {
-        background: #8bdab6;
-        border: 1px solid;
-        float: right;
-        padding: 30px;
+    .row {
+        flex: 1 1 0;
+        margin: 0 5px;
+
+        .box {
+            padding: 0.8rem;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .direct-chat-messages {
+            height: 300px;
+        }
+
+        .direct-chat-info {
+            height: 20px;
+        }
+
+        .direct-chat-msg {
+            width: 100%;
+            clear: both;
+        }
+
+        .clock {
+            background: #ffffff;
+            border-top: 5px solid #00a65a;
+            float: right;
+            padding: 30px;
+        }
+    }
+
+    .oneColumn {
+        flex: 1;
+    }
+
+    .twoColumns {
+        flex: 2;
     }
 }
