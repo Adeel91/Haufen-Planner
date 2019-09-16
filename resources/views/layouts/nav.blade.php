@@ -17,9 +17,7 @@
         <div class="navbar-start"></div>
 
         <div class="navbar-end">
-            @if (Auth::guest())
-                <a class="navbar-item " href="{{ route('login') }}">Login</a>
-            @else
+            @if (!Auth::guest())
                 <a class="navbar-item ">Auto Logout: &nbsp; <span id="countDownTimer"></span></a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link" href="#">

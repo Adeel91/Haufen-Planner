@@ -35,4 +35,16 @@
             No projects yet.
         </p>
     @endforelse
+
+    <div class="sectionDash">
+        <div>
+            <h2 class="title is-5">
+                Chat members
+            </h2>
+        </div>
+
+        <div class="clock">
+            <div id="myclock"></div>
+        </div>
+    </div>
 @endsection
