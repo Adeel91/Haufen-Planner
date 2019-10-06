@@ -8,6 +8,8 @@ use App\Traits\Userstamps;
 use App\Filters\TaskFilters;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Task extends Model
 {
@@ -111,5 +113,25 @@ class Task extends Model
     public static function getTasksByProjectsEmployees(Project $project, TaskFilters $filters, $user)
     {
         return static::where('project_id', $project->id)->where('employee_id', $user->id)->filter($filters);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getTasksForEmployees()
+    {
+        return self::join('statuses', 'tasks.status_id', '=', 'statuses.id')
+            ->join('projects', 'tasks.project_id', '=', 'projects.id')
+            ->where(function ($q) {
+                $q->where('tasks.deleted_at', null);
+
+                $user = Auth::user();
+                $q->where('tasks.employee_id', $user->id);
+            })
+            ->orderBy('tasks.due_date', 'DESC')
+            ->limit(10)
+            ->get(
+                ['tasks.id', DB::raw('tasks.title as taskTitle'), 'tasks.description', 'tasks.due_date', 'tasks.project_id', DB::raw('projects.title as projectTitle'), 'statuses.slug']
+            );
     }
 }

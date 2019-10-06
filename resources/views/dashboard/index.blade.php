@@ -87,89 +87,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="direct-chat-contacts">
-                            <ul class="contacts-list">
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              Count Dracula
-                                              <small class="contacts-list-date pull-right">2/28/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">How have you been? I was...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              Sarah Doe
-                                              <small class="contacts-list-date pull-right">2/23/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">I will be waiting for...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              Nadia Jolie
-                                              <small class="contacts-list-date pull-right">2/20/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">I'll call you back at...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              Nora S. Vans
-                                              <small class="contacts-list-date pull-right">2/10/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">Where is your new...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              John K.
-                                              <small class="contacts-list-date pull-right">1/27/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">Can I take a look at...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Image">
-
-                                        <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              Kenneth M.
-                                              <small class="contacts-list-date pull-right">1/4/2015</small>
-                                            </span>
-                                            <span class="contacts-list-msg">Never mind I found...</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="box-footer">
                         <form action="#" method="post">
@@ -299,55 +216,50 @@
                 </div>
             </div>
         </div>
+
         <div class="row twoColumns">
             <div class="col-md-6">
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Supervisors</h3>
+                @if (!$tasks->isEmpty())
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">10 Most Recent Tasks</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th>Task Title</th>
+                                            <th>Description</th>
+                                            <th>Project</th>
+                                            <th>Status</th>
+                                            <th>Due Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($tasks as $task)
+                                            <tr>
+                                                <td><a href="{{ route('tasks.comments.index', $task->id) }}">{{ $task->taskTitle }}</a></td>
+                                                <td>{{ $task->description }}</td>
+                                                <td>{{ $task->projectTitle }}</td>
+                                                <td><a href="{{ route('projects.tasks.index',['project'=>$task->project_id, 'status'=>$task->slug]) }}" class="label-task {{ (
+                                                    ($task->slug === 'open') ? 'bg-open' :
+                                                    (($task->slug === 'draft') ? 'bg-draft' :
+                                                    (($task->slug === 'on-going') ? 'bg-ongoing' :
+                                                    (($task->slug === 'cancel') ? 'bg-cancel' :
+                                                    'bg-close')))
+                                                ) }}">{{ $task->slug }}</a></td>
+                                                <td>
+                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">{{ $task->due_date }}</div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <div class="box-body no-padding">
-                        <ul class="users-list clearfix">
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Jane</a>
-                                <span class="users-list-date">12 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander</a>
-                                <span class="users-list-date">13 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nora</a>
-                                <span class="users-list-date">15 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">John</a>
-                                <span class="users-list-date">12 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander Pierce</a>
-                                <span class="users-list-date">Today</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nadia</a>
-                                <span class="users-list-date">15 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Sarah</a>
-                                <span class="users-list-date">14 Jan</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-footer text-center">
-                        <a href="{{ route('users.index') }}" class="uppercase">View All Supervisors</a>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

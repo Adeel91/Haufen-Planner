@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Support\Facades\Auth;
 use App\Status;
 
@@ -14,11 +15,12 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $projectGroupCounts = Status::getProjectsCountByStatus();
+        $tasks = Task::getTasksForEmployees();
 
         if ($user->hasRole('employee')) {
             $projectGroupCounts = Status::getProjectsCountForEmployees();
         }
-
-        return view('dashboard.index', compact('projectGroupCounts'));
+//echo '<pre>';dump($tasks);die;
+        return view('dashboard.index', compact('projectGroupCounts', 'tasks'));
     }
 }
