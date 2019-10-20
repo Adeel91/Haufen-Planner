@@ -14950,3 +14950,10 @@ table tbody td {
   color: #ffffff !important;
 }
 
+.users-list > li img {
+  height: 75px !important;
+  width: 75px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+

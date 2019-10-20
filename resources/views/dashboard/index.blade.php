@@ -46,19 +46,19 @@
                     <div class="box-body no-padding">
                         <ul class="users-list clearfix">
                             <li>
-                                <img src="https://scontent.fkhi11-1.fna.fbcdn.net/v/t1.0-9/70609407_2948681105149025_2396673596064792576_n.jpg?_nc_cat=103&_nc_oc=AQk3TSSFIryH9YtBtmWzL_4kteJFaT5LbPg2OWbwKdXgRlhXS6Zjd4veklG6iBLN5_Q&_nc_ht=scontent.fkhi11-1.fna&oh=c3c8d9f2c47de4007cc36b5408599fa9&oe=5E3B8B2F" alt="User Image">
+                                <img src = "{{ asset('/images/Faisal.jpg') }}" class="Faisal" />
                                 <a class="users-list-name" href="#">Faisal</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Nadeem.png') }}" class="Nadeem" />
                                 <a class="users-list-name" href="#">Nadeem</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Nabeel.jpg') }}" class="Nabeel" />
                                 <a class="users-list-name" href="#">Nabeel</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Adeel.jpg') }}" class="Adeel" />
                                 <a class="users-list-name" href="#">Adeel</a>
                             </li>
                         </ul>
@@ -79,23 +79,23 @@
                     <div class="box-body no-padding">
                         <ul class="users-list clearfix">
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Sajeel.jpg') }}" class="Sajeel" />
                                 <a class="users-list-name" href="#">Sajeel</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user8-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Usama.png') }}" class="Usama" />
                                 <a class="users-list-name" href="#">Usama</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Mannan.png') }}" class="Mannan" />
                                 <a class="users-list-name" href="#">Mannan</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Anas.png') }}" class="Anas" />
                                 <a class="users-list-name" href="#">Anas</a>
                             </li>
                             <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
+                                <img src = "{{ asset('/images/Arbaz.png') }}" class="Arbaz" />
                                 <a class="users-list-name" href="#">Arbaz</a>
                             </li>
                         </ul>

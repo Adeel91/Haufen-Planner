@@ -286,3 +286,9 @@ table {
 .direct-chat-text {
     color: #ffffff !important;
 }
+
+.users-list>li img {
+    height: 75px !important;
+    width: 75px !important;
+    object-fit: cover;
+}
