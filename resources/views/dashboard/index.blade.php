@@ -39,68 +39,37 @@
     <div class="sectionDash">
         <div class="row">
             <div class="col-md-6">
-                <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Direct Chat</h3>
+                        <h3 class="box-title">Supervisors</h3>
                     </div>
-                    <div class="box-body">
-                        <div class="direct-chat-messages">
-                            <div class="direct-chat-msg">
-                                <div class="direct-chat-info clearfix">
-                                    <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                    <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
-                                </div>
-                                <img class="direct-chat-img" src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="message user image">
-                                <div class="direct-chat-text">
-                                    Is this template really for free? That's unbelievable!
-                                </div>
-                            </div>
-                            <div class="direct-chat-msg right">
-                                <div class="direct-chat-info clearfix">
-                                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                                    <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                                </div>
-                                <img class="direct-chat-img" src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="message user image">
-                                <div class="direct-chat-text">
-                                    You better believe it!
-                                </div>
-                            </div>
-
-                            <div class="direct-chat-msg">
-                                <div class="direct-chat-info clearfix">
-                                    <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                    <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-                                </div>
-                                <img class="direct-chat-img" src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="message user image">
-                                <div class="direct-chat-text">
-                                    Working with AdminLTE on a great new app! Wanna join?
-                                </div>
-                            </div>
-                            <div class="direct-chat-msg right">
-                                <div class="direct-chat-info clearfix">
-                                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                                    <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
-                                </div>
-                                <img class="direct-chat-img" src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="message user image">
-                                <div class="direct-chat-text">
-                                    I would love to.
-                                </div>
-                            </div>
-                        </div>
+                    <div class="box-body no-padding">
+                        <ul class="users-list clearfix">
+                            <li>
+                                <img src="https://scontent.fkhi11-1.fna.fbcdn.net/v/t1.0-9/70609407_2948681105149025_2396673596064792576_n.jpg?_nc_cat=103&_nc_oc=AQk3TSSFIryH9YtBtmWzL_4kteJFaT5LbPg2OWbwKdXgRlhXS6Zjd4veklG6iBLN5_Q&_nc_ht=scontent.fkhi11-1.fna&oh=c3c8d9f2c47de4007cc36b5408599fa9&oe=5E3B8B2F" alt="User Image">
+                                <a class="users-list-name" href="#">Faisal</a>
+                            </li>
+                            <li>
+                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
+                                <a class="users-list-name" href="#">Nadeem</a>
+                            </li>
+                            <li>
+                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
+                                <a class="users-list-name" href="#">Nabeel</a>
+                            </li>
+                            <li>
+                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
+                                <a class="users-list-name" href="#">Adeel</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="box-footer">
-                        <form action="#" method="post">
-                            <div class="input-group">
-                                <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                                <span class="input-group-btn">
-                        <button type="button" class="btn btn-warning btn-flat">Send</button>
-                      </span>
-                            </div>
-                        </form>
+                    <div class="box-footer text-center">
+                        <a href="{{ route('users.index') }}" class="uppercase">View All Supervisors</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="box box-danger">
@@ -111,43 +80,23 @@
                         <ul class="users-list clearfix">
                             <li>
                                 <img src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander Pierce</a>
-                                <span class="users-list-date">Today</span>
+                                <a class="users-list-name" href="#">Sajeel</a>
                             </li>
                             <li>
                                 <img src="https://adminlte.io/themes/AdminLTE/dist/img/user8-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Norman</a>
-                                <span class="users-list-date">Yesterday</span>
+                                <a class="users-list-name" href="#">Usama</a>
                             </li>
                             <li>
                                 <img src="https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Jane</a>
-                                <span class="users-list-date">12 Jan</span>
+                                <a class="users-list-name" href="#">Mannan</a>
                             </li>
                             <li>
                                 <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">John</a>
-                                <span class="users-list-date">12 Jan</span>
+                                <a class="users-list-name" href="#">Anas</a>
                             </li>
                             <li>
                                 <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander</a>
-                                <span class="users-list-date">13 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Sarah</a>
-                                <span class="users-list-date">14 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nora</a>
-                                <span class="users-list-date">15 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nadia</a>
-                                <span class="users-list-date">15 Jan</span>
+                                <a class="users-list-name" href="#">Arbaz</a>
                             </li>
                         </ul>
                     </div>
@@ -165,58 +114,6 @@
     </div>
 
     <div class="sectionDash">
-        <div class="row oneColumn">
-            <div class="col-md-6">
-                <div class="box box-danger">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Supervisors</h3>
-                    </div>
-                    <div class="box-body no-padding">
-                        <ul class="users-list clearfix">
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Jane</a>
-                                <span class="users-list-date">12 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander</a>
-                                <span class="users-list-date">13 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nora</a>
-                                <span class="users-list-date">15 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">John</a>
-                                <span class="users-list-date">12 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Alexander Pierce</a>
-                                <span class="users-list-date">Today</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Nadia</a>
-                                <span class="users-list-date">15 Jan</span>
-                            </li>
-                            <li>
-                                <img src="https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image">
-                                <a class="users-list-name" href="#">Sarah</a>
-                                <span class="users-list-date">14 Jan</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="box-footer text-center">
-                        <a href="{{ route('users.index') }}" class="uppercase">View All Supervisors</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row twoColumns">
             <div class="col-md-6">
                 @if (!$tasks->isEmpty())
