@@ -119,7 +119,7 @@
                 @if (!$tasks->isEmpty())
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">10 Most Recent Tasks</h3>
+                            <h3 class="box-title">Most Recent Tasks</h3>
                         </div>
                         <div class="box-body">
                             <div class="table-responsive">
